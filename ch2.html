@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>ch2</title>
+</head>
+<body>
+<p><h3><b><i>ch2 人脸识别系统与评价</h3></i></b></p>
+<hr width="100%">
+<pre>
+介绍人脸识别的系统要求、性能指标和测试标准，以及常用的人脸识别数据库和商用的人脸识别系统
+
+<h4>系统</h4>
+国外
+公司较多，主要分类是：
+人脸ID 访问控制 安全保护 监控设施 智能卡 法律检索 人脸数据库 多媒体管理 人机交互
+
+国内
+相对落后，都是前沿机构在做：
+上海银晨（对Visionic公司的FaceIt的汉化，无自主知识产权）
+中科院计算所-银晨人脸识别联合研究开发实验室
+南大-江苏公安刑事总队联合开发的识别系统
+清华大学人脸识别系统（已在车站试用）
+行者人脸识别智能监控系统
+航天金盾人脸识别系统
+
+<h4>评价标准</h4>
+实用化
+1能在普通硬件平台上实现较高的性能
+2系统易于维护、扩充、适当调节和优化
+
+性能指标
+
+1精确度与识别率
+拒识率FRR false rejection rate
+误识率FAR false accept rate
+正识率RAR
+增大阈值，可以减少FRR但会提高FAR，需平衡二者关系以获得最大识别率。
+
+评价测度
+
+下图是FRR和FAR关于阈值的变化曲线，纵轴单位为百分比。
+</pre>
+<img src="https://raw.githubusercontent.com/digitalbottle/face_recognition/master/1.png" alt="1" title="1" width="300" />
+<pre>
+i.等错误率EER equal error rate
+阈值t常选择在略大于EER的c处，即一定程度上牺牲FRR来提高FAR，延长登录时间来保证系统安全性
+ii.ARE 图中阴影面积 由FRR曲线,FAR曲线,y=EER+5%围成
+ARE越小，则合法用户和非法用户越难区分，最优阈值也难以确定，系统性能越差。
+iii.当合法用户和非法用户的脸部数据分布都各自接近正态分布时，则可用如下式的d值来判定系统性能：均值差*标准差的几何平均值
+<img src="https://raw.githubusercontent.com/digitalbottle/face_recognition/master/2.png" alt="2" title="2" width="300" />
+d的绝对值越大，说明越易于区分，最优阈值越容易确定，系统性能越好。
+当然，实际应用中，合法和非法的分布极有可能不同，此法失效。
+iv.ROC receiver operating characteristic
+FRR-FAR曲线，与y=x交于EER，是一种更常用的测度，能够提供系统在不同操作点性能的经验评价。
+<img src="https://raw.githubusercontent.com/digitalbottle/face_recognition/master/3.png" alt="3" title="3" width="300" />
+
+2识别速度
+
+i基于文件的
+ii基于数据库的
+
+3影响系统性能的其他因素
+
+i光照illumination/lighting
+影响灰度统计特性和几何特征提取
+ii姿态pose
+iii表情expression
+iv尺度scale/size
+二维尺度上的放缩
+v眼镜，饰物
+vi胡须
+vii发型
+viii图像质量
+ix计算复杂性
+不同应用环境对识别时间的要求不尽相同
+x类别数
+影响类别间可分性，进而影响识别难度
+xi参考样本数目和样本差异性
+xii其他
+如自然衰老变胖变瘦脸部伤口等
+
+<h4>系统测试标准</h4>
+1.FRTNT face recognition technology test
+2.FRCT face recognition vendor test
+3.XM2VTS extended multi-modal verification for telesercives and security applications
+4.FAC2004和FAT2004竞赛
+</pre>
+</html>
